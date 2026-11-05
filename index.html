@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#090d14">
+  <title>APEX RUSH — 3D Racing</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}
+  </script>
+</head>
+<body>
+  <div id="game-root">
+    <div id="loading" class="loading"><div class="loader"></div><span>PREPARING YOUR DRIVE</span></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Apex Rush home"><span class="brand-mark">A</span><span>APEX<span class="brand-light">RUSH</span></span></a>
+      <div class="top-meta"><span class="live-dot"></span> TRACK SESSION <span class="meta-divider">/</span> HILLSIDE GP</div>
+      <button id="sound-toggle" class="icon-button" title="Toggle sound">♪</button>
+    </header>
+
+    <main id="menu" class="menu-screen">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> YOUR NEXT DRIVE STARTS HERE</div>
+        <h1>OWN THE<br><em>APEX.</em></h1>
+        <p class="hero-sub">Find your line. Feel the grip. Leave everything behind.</p>
+        <div class="menu-actions">
+          <button id="start-race" class="primary-button">START RACE <span>↗</span></button>
+          <button id="free-drive" class="secondary-button">FREE DRIVE</button>
+        </div>
+        <div class="mode-note"><span class="keycap">W</span><span class="keycap">A</span><span class="keycap">S</span><span class="keycap">D</span> OR ARROW KEYS <span class="mode-sep">•</span> TOUCH CONTROLS SUPPORTED</div>
+      </div>
+      <div class="hero-car-label"><span class="label-line"></span><div><b>01 / STREET SPEC</b><small>APEX GT · REAR-WHEEL DRIVE</small></div></div>
+      <div class="menu-bottom"><span>BUILT FOR THE DRIVE</span><span>THREE-DIMENSIONAL RACING EXPERIENCE</span><span>V 1.0</span></div>
+    </main>
+
+    <section id="hud" class="hud hidden">
+      <div class="hud-top">
+        <div class="race-info"><small id="race-mode">CIRCUIT RACE</small><strong id="lap-display">LAP 1 <i>/ 3</i></strong></div>
+        <div class="timer"><small>TIME</small><strong id="timer">00:00.000</strong></div>
+        <button id="pause" class="pause-button">Ⅱ</button>
+      </div>
+      <div class="hud-bottom">
+        <div class="speed-panel"><div class="speed-value"><strong id="speed">000</strong><span>KM/H</span></div><div class="speed-track"><span id="speed-bar"></span></div><div class="gear-row"><span>GEAR</span><b id="gear">1</b><span class="rpm-label">RPM <b id="rpm">0900</b></span></div></div>
+        <div class="race-status"><span class="status-dot"></span><span id="status-text">FIND YOUR LINE</span></div>
+        <button id="camera" class="camera-button">CAM <b>1</b></button>
+      </div>
+      <div id="mobile-controls" class="mobile-controls">
+        <div class="steer-controls"><button data-control="left">◀</button><button data-control="right">▶</button></div>
+        <div class="pedal-controls"><button data-control="brake" class="brake">BRAKE</button><button data-control="handbrake" class="handbrake">DRIFT</button><button data-control="accelerate" class="accelerate">GO</button></div>
+      </div>
+    </section>
+
+    <section id="pause-panel" class="modal hidden">
+      <div class="modal-card"><div class="eyebrow">SESSION PAUSED</div><h2>TAKE A<br><em>BREATHER.</em></h2><button id="resume" class="primary-button">RESUME DRIVE ↗</button><button id="restart" class="secondary-button">RESTART SESSION</button><button id="exit-menu" class="text-button">BACK TO MAIN MENU</button></div>
+    </section>
+    <section id="finish-panel" class="modal hidden">
+      <div class="modal-card"><div class="eyebrow">CHECKERED FLAG</div><h2>RACE<br><em>COMPLETE.</em></h2><div class="result-time" id="result-time">00:00.000</div><p class="result-caption">YOUR SESSION TIME</p><button id="race-again" class="primary-button">RACE AGAIN ↗</button><button id="finish-menu" class="text-button">MAIN MENU</button></div>
+    </section>
+    <div id="toast" class="toast"></div>
+    <div class="corner-hint">HILLSIDE GP <span>·</span> DRY ASPHALT</div>
+  </div>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
